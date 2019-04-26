@@ -139,7 +139,10 @@ var obj2 = {
 
 var student = {
   lastName: 'Skywalker',
-  firstName: 'Luke'
+  firstName: 'Luke',
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
 };
 
 console.log("student:", student);
@@ -149,3 +152,24 @@ console.log("student.firstName:", student.firstName);
 var fieldToAccess = 'firstName';
 console.log("student[fieldToAccess]:", student[fieldToAccess]);
 console.log("student.fieldToAccess:", student.fieldToAccess);
+
+console.log("student.fullName():", student.fullName());
+
+
+console.log("\n======================");
+console.log("== Classes");
+console.log("======================\n");
+
+function Student(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+Student.prototype.fullName = function () {
+  return this.firstName + " " + this.lastName;
+};
+
+var s = new Student("Leia", "Organa");
+console.log("s.firstName:", s.firstName);
+console.log("s.lastName:", s.lastName);
+console.log("s.fullName():", s.fullName());
